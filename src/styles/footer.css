@@ -1,0 +1,31 @@
+footer{
+   background: var(--background-beige);
+}
+
+.footer{
+   max-width: 1440px;
+   margin: auto;
+   padding: 40px 15px;
+}
+
+.socials{
+   display: flex;
+   align-items: center;
+   gap: 50px;
+}
+
+.socials svg{
+   width: 30px;
+}
+
+footer img{
+   max-width: 150px;
+   height: 150px;
+   object-fit: contain;
+}
+
+footer article{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}

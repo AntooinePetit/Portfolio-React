@@ -1,0 +1,148 @@
+/* Import fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Uniformisation */
+
+:root{
+   /* fonts */
+   --montserrat: "Montserrat", sans-serif;
+   --open: "Open Sans", sans-serif;
+   /* colors */
+   --primary-blue: #1E96FC;
+   --secondary-red: #E34E67;
+   --black-text: #170F11;
+   --dark-text: #241623;
+   --background-beige: #D0CD9433;
+   --background-white: #FAFAFA;
+}
+
+*{
+   margin: 0;
+   transition: all 0.3s ease;
+}
+
+body{
+   background: var(--background-white);
+}
+
+.container-1440{
+   max-width: 1440px;
+   margin: auto;
+   padding: 0 15px;
+}
+
+h1{
+   font-family: var(--montserrat);
+   font-size: 60px;
+   color: var(--black-text);
+   font-weight: 400;
+   margin-bottom: 16px;
+}
+
+h2{
+   font-family: var(--montserrat);
+   font-size: 36px;
+   color: var(--black-text);
+   font-weight: 400;
+}
+
+h3{
+   font-family: var(--montserrat);
+   font-size: 24px;
+   color: var(--black-text);
+   font-weight: 400;
+}
+
+p{
+   font-family: var(--open);
+   font-size: 16px;
+   color: var(--dark-text);
+}
+
+a{
+   text-decoration: none;
+   font-family: var(--open);
+   color: var(--dark-text);
+   font-size: 16px;
+}
+
+img{
+   width: 100%;
+}
+
+section{
+   padding: 96px 0;
+}
+
+/* Section 1 : Welcome */
+
+#welcome{
+   margin-top: 150px;
+
+   article{
+
+      justify-items: center;
+
+      h1 span{
+         color: var(--primary-blue);
+      }
+
+      p{
+         font-size: 24px;
+         margin-bottom: 16px;
+      }
+
+      div{
+         display: flex;
+         gap: 32px;
+      }
+
+      #welcome-buttons a{
+         display: flex;
+         align-items: center;
+         gap: 10px;
+         background: none;
+         border: 1px solid var(--primary-blue);
+         color: var(--primary-blue);
+         padding: 11px 32px;
+         border-radius: 5px;
+      }
+
+      #welcome-buttons a:hover{
+         background: #1E96FC1A;
+         color: var(--dark-text);
+      }
+
+      #see-projects{
+         background-color: var(--primary-blue)!important;
+         color: var(--background-white)!important;
+      }
+
+      #see-projects:hover{
+         background-color: #1E96FCE6!important;
+      }
+
+      .socials{
+         margin-top: 48px;
+      }
+   }
+   
+}
+
+/* Animation sous le span */
+.animated-span {
+   color: var(--primary-blue);
+   position: relative;
+   display: inline-block;
+   padding-bottom: 10px; /* Espace sous le texte pour la ligne */
+}
+
+/* SVG de la ligne ondulée */
+.wavy-line {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   bottom: -5px;
+}
