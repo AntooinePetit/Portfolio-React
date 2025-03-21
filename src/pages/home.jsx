@@ -1,10 +1,11 @@
-import { ArrowRight, CodeXml, Database, FileCode, Layers, Palette, Server } from "lucide-react";
+import { ArrowRight, CodeXml, Database, ExternalLink, FileCode, Layers, Mail, MapPin, Palette, Phone, Send, Server } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import Socials from "../components/socials";
 import "../styles/home.css";
+import LinksProjects from "../components/links-projects";
 
 function Home() {
    const controls = useAnimation();
@@ -166,8 +167,113 @@ function Home() {
                   </article>
                </div>
             </section>
-            <section id="projects"></section>
-            <section id="contact"></section>
+            <section id="projects">
+               <div className="container-1440">
+                  <h2>Mes projets</h2>
+                  <p>Découvrez une sélection de mes réalisations récentes qui démontrent mes compétences et mon approche</p>
+                  <div className="project-list">
+                     <article>
+                        <img src="/images/Brigitte.png" alt="Brigitte Galerie d'Art" />
+                        <div>
+                           <h3>Brigitte Galerie d'Art</h3>
+                           <p>Site vitrine d’une galerie d’art avec page de contact, d’oeuvres et de blog. Entièrement réalisé avec WordPress.</p>
+                           <ul>
+                              <li>WordPress</li>
+                              <li>FakerPress</li>
+                              <li>Elementor</li>
+                           </ul>
+                           <LinksProjects links={{site: "https://antooinepetit.github.io/Brigitte/", code: "https://github.com/AntooinePetit/Brigitte"}} />
+                        </div>
+                     </article>
+                     <article>
+                        <img src="/images/Gamedev.png" alt="Game Development Studio" />
+                        <div>
+                           <h3>Game Development Studio</h3>
+                           <p>Projet d’intégration d’un site d’un studio de développement fictif, entièrement développé en HTML CSS avec du Responsive tablette et mobile.</p>
+                           <ul>
+                              <li>HTML5</li>
+                              <li>CSS3</li>
+                              <li>Responsive Design</li>
+                           </ul>
+                           <LinksProjects links={{site: "https://antooinepetit.github.io/GameDev/", code: "https://github.com/AntooinePetit/GameDev"}} />
+                        </div>
+                     </article>
+                     <article>
+                        <img src="/images/Pagerie.png" alt="Foncière Pagerie-Malmaison" />
+                        <div>
+                           <h3>Foncière Pagerie-Malmaison</h3>
+                           <p>Site vitrine d’une agence immobilière de location de bureaux. Premier site réalisé en HTML et CSS.</p>
+                           <ul>
+                              <li>HTML5</li>
+                              <li>CSS3</li>
+                              <li>Responsive Design</li>
+                           </ul>
+                           <LinksProjects links={{site: "https://antooinepetit.github.io/Pagerie-Malmaison/", code: "https://github.com/AntooinePetit/Pagerie-Malmaison"}} />
+                        </div>
+                     </article>
+                  </div>
+               </div>
+            </section>
+            <section id="contact">
+               <h2>Me contacter</h2>
+               <p>Vous avez un projet en tête ou une question ? N’hésitez pas à ma contacter</p>
+               <div className="container-1440">
+                  <article>
+                     <div>
+                        <span className="svg">
+                           <Mail />
+                        </span>
+                        <span>
+                           <p>email</p>
+                           <a href="mailto:antooine.petit@gmail.com">antooine.petit@gmail.com</a>
+                        </span>
+                     </div>
+                     <div>
+                        <span className="svg">
+                           <Phone />
+                        </span>
+                        <span>
+                           <p>Téléphone</p>
+                           <a href="tel:+33770819539">+33 7 70 81 95 39</a>
+                        </span>
+                     </div>
+                     <div>
+                        <span className="svg">
+                           <MapPin />
+                        </span>
+                        <span>
+                           <p>Localisation</p>
+                           <a href="https://www.google.com/maps/place/Saint+Julien+le+montagnier/@43.6924242,5.8872653,15z/data=!3m1!4b1!4m6!3m5!1s0x12cbd9a08559891b:0x4f05559c8922ffb!8m2!3d43.6924102!4d5.9057193!16s%2Fg%2F11q99qsmqn?hl=fr&entry=ttu&g_ep=EgoyMDI1MDMxOC4wIKXMDSoASAFQAw%3D%3D" target="blank">St-Julien, France</a>
+                        </span>
+                     </div>
+                  </article>
+                  <article>
+                     <form action="">
+                        <span>
+                           <label htmlFor="name">Nom <span>*</span></label>
+                           <input type="text" name="name" id="name" placeholder="Votre nom" required/>
+                        </span>
+
+                        <span>
+                           <label htmlFor="email">Email <span>*</span></label>
+                           <input type="email" name="email" id="email" placeholder="Votre email" required/>
+                        </span>
+
+                        <span>
+                           <label htmlFor="subject">Sujet <span>*</span></label>
+                           <input type="text" name="subject" id="subject" placeholder="Le sujet de votre message" required/>
+                        </span>
+
+                        <span>
+                           <label htmlFor="message">Message <span>*</span></label>
+                           <textarea name="message" id="message" placeholder="Votre message...." required></textarea>
+                        </span>
+                        
+                        <button type="submit">Envoyer <Send /></button>
+                     </form>
+                  </article>
+               </div>
+            </section>
          </main>
          <Footer />
       </>
