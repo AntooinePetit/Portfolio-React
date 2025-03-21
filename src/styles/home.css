@@ -16,6 +16,7 @@
    --dark-text: #241623;
    --background-beige: #D0CD9433;
    --background-white: #FAFAFA;
+   --border-grey: #EAE8C8;
 }
 
 *{
@@ -38,7 +39,8 @@ h1{
    font-size: 60px;
    color: var(--black-text);
    font-weight: 400;
-   margin-bottom: 16px;
+   margin-bottom: 20px;
+   text-align: center;
 }
 
 h2{
@@ -46,6 +48,7 @@ h2{
    font-size: 36px;
    color: var(--black-text);
    font-weight: 400;
+   text-align: center;
 }
 
 h3{
@@ -79,7 +82,8 @@ section{
 /* Section 1 : Welcome */
 
 #welcome{
-   margin-top: 150px;
+   margin-top: 100px;
+   padding: 128px 0;
 
    article{
 
@@ -91,12 +95,14 @@ section{
 
       p{
          font-size: 24px;
-         margin-bottom: 16px;
+         margin-bottom: 32px;
+         text-align: center;
       }
 
       div{
          display: flex;
          gap: 32px;
+         margin-bottom: 48px;
       }
 
       #welcome-buttons a{
@@ -123,10 +129,6 @@ section{
       #see-projects:hover{
          background-color: #1E96FCE6!important;
       }
-
-      .socials{
-         margin-top: 48px;
-      }
    }
    
 }
@@ -145,4 +147,124 @@ section{
    left: 50%;
    transform: translateX(-50%);
    bottom: -5px;
+}
+
+/* Section 2 : About */
+
+#about{
+   background: var(--background-beige);
+
+   h2{
+      margin-bottom: 68px;
+   }
+
+   article{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      img{
+         max-width: 312px;
+         height: 312px;
+         object-fit: cover;
+         justify-self: center;
+         border: 3px solid #1e94fc7d;
+         border-radius: 156px;
+         transform: scaleX(-1);
+         align-self: center;
+      }
+
+      div{
+         padding: 10px;
+
+         h3{
+            margin-bottom: 24px;
+         }
+
+         div{
+            margin-bottom: 24px;
+            padding: 0;
+
+            p{
+               margin-bottom: 15px;
+               line-height: 22px;
+            }
+         }
+
+         button{
+            background: none;
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-family: var(--open);
+            font-weight: 600;
+            font-size: 16px;
+         }
+
+         button:hover{
+            background: #1E96FC1A;
+            color: var(--dark-text);
+            cursor: pointer;
+         }
+      }
+   }
+}
+
+/* Section 3 : Skills */
+
+#skills{
+   h2{
+      margin-bottom: 48px;
+   }
+
+   .container-1440{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+
+      article{
+         border: 1px solid var(--border-grey);
+         border-radius: 10px;
+         padding: 24px;
+
+         svg{
+            height: 50px;
+            width: 50px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+         }
+
+         h3{
+            margin-bottom: 6px;
+         }
+
+         p{
+            font-size: 14px;
+            margin-bottom: 20px;
+         }
+
+         ul{
+            display: inline;
+            gap: 16px;
+            list-style: none;
+            padding: 0;
+
+            li{
+               display: inline-block;
+               font-family: var(--open);
+               font-size: 14px;
+               color: var(--dark-text);
+               padding: 4px 12px;
+               background: var(--border-grey);
+               border-radius: 20px;
+               margin-right: 8px;
+               margin-bottom: 10px;
+            }
+         }
+      }
+
+      article:hover{
+         border-color: var(--primary-blue);
+      }
+   }
 }
