@@ -1,14 +1,16 @@
-import { ArrowRight, CodeXml, Database, ExternalLink, FileCode, Layers, Mail, MapPin, Palette, Phone, Send, Server } from "lucide-react";
+import { ArrowRight, CodeXml, Database, FileCode, Layers, Mail, MapPin, Palette, Phone, Send, Server } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import Socials from "../components/socials";
 import "../styles/home.css";
 import LinksProjects from "../components/links-projects";
+import { Link } from "react-router-dom";
+import Skill from "../components/skills";
 
 function Home() {
-   
+
 
    const controls = useAnimation();
 
@@ -45,6 +47,16 @@ function Home() {
 
       animateLine();
    }, [controls]);
+
+   const [data, setData] = useState([])
+      async function getDatas(){
+         const req = await fetch("/data/skills.json")
+         const res = await req.json()
+         setData(res.skills) 
+      }
+      useEffect(() => {
+         getDatas()
+      }, [])
 
    return (
       <>
@@ -101,72 +113,9 @@ function Home() {
             <section id="skills">
                <h2>Mes compétences</h2>
                <div className="container-1440">
-                  <article>
-                     <Palette />
-                     <h3>Front-end</h3>
-                     <p>Création d’interfaces utilisateur réactives et moderne</p>
-                     <ul>
-                        <li>HTML5</li>
-                        <li>CCS3</li>
-                        <li>JavaScript</li>
-                        <li>React</li>
-                        <li>Tailwind CSS</li>
-                     </ul>
-                  </article>
-                  <article>
-                     <Server />
-                     <h3>Back-end</h3>
-                     <p>Développement de logique serveur et d’API</p>
-                     <ul>
-                        <li>PHP</li>
-                        <li>Node.JS</li>
-                        <li>MySQL</li>
-                        <li>MongoDB</li>
-                     </ul>
-                  </article>
-                  <article>
-                     <FileCode />
-                     <h3>WordPress</h3>
-                     <p>Création et personnalisation de sites WordPress</p>
-                     <ul>
-                        <li>Thèmes</li>
-                        <li>Plug-ins</li>
-                        <li>Elementor</li>
-                        <li>WooCommerce</li>
-                     </ul>
-                  </article>
-                  <article>
-                     <CodeXml />
-                     <h3>Outils de développement</h3>
-                     <p>Utilisation d’outils modernes pour un développement efficace</p>
-                     <ul>
-                        <li>Git</li>
-                        <li>GitHub</li>
-                        <li>VS Code</li>
-                        <li>Figma</li>
-                        <li>npm</li>
-                     </ul>
-                  </article>
-                  <article>
-                     <Database />
-                     <h3>Base de données</h3>
-                     <p>Conception et gestion de bases de données</p>
-                     <ul>
-                        <li>MySQL</li>
-                        <li>MongoDB</li>
-                     </ul>
-                  </article>
-                  <article>
-                     <Layers />
-                     <h3>Autres compétences</h3>
-                     <p>Compétences supplémentaires</p>
-                     <ul>
-                        <li>Responsive Design</li>
-                        <li>UI/UX</li>
-                        <li>Performance web</li>
-                        <li>Accessibilité</li>
-                     </ul>
-                  </article>
+                  {data?.map((skills) => {
+                     return <Skill icone={skills.icone} titre={skills.titre} description={skills.description} competences={skills.competences}/>
+                  })}
                </div>
             </section>
             <section id="projects">
@@ -214,7 +163,7 @@ function Home() {
                         </div>
                      </article>
                   </div>
-                  <a href="#" id="see-all">Tous mes projets</a>
+                  <a href="https://github.com/AntooinePetit" id="see-all">Tous mes projets</a>
                </div>
             </section>
             <section id="contact">

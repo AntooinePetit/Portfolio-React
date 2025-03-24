@@ -530,6 +530,9 @@ main li{
 /* Responsive mobile */
 
 @media screen and (max-width:767px) {
+   #welcome{
+      margin-top: 0;
+   }
    h1{
       font-size: 40px;
 

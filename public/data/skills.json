@@ -1,0 +1,71 @@
+{
+   "skills": [
+      {
+         "icone" : "Palette",
+         "titre" : "Front-end",
+         "description" : "Création d’interfaces utilisateur réactives et moderne",
+         "competences" : [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "React",
+            "Motion",
+            "Python"
+         ]
+      },
+      {
+         "icone" : "Server",
+         "titre" : "Back-end",
+         "description" : "Développement de logique serveur et d’API",
+         "competences" : [
+            "PHP",
+            "Node.JS",
+            "MySQL",
+            "MongoDB"
+         ]
+      },
+      {
+         "icone" : "FileCode",
+         "titre" : "WordPress",
+         "description" : "Création et personnalisation de sites WordPress",
+         "competences" : [
+            "Thèmes",
+            "Plug-ins",
+            "Elementor",
+            "WooCommerce"
+         ]
+      },
+      {
+         "icone" : "CodeXml",
+         "titre" : "Outils de développement",
+         "description" : "Utilisation d’outils modernes pour un développement efficace",
+         "competences" : [
+            "Git",
+            "GitHub",
+            "VS Code",
+            "Figma",
+            "npm"
+         ]
+      },
+      {
+         "icone" : "Database",
+         "titre" : "Base de données",
+         "description" : "Conception et gestion de bases de données",
+         "competences" : [
+            "MySQL",
+            "MongoDB"
+         ]
+      },
+      {
+         "icone" : "Layers",
+         "titre" : "Autres compétences",
+         "description" : "Compétences supplémentaires",
+         "competences" : [
+            "Responsive Design",
+            "UI/UX",
+            "Performance web",
+            "Accessibilité"
+         ]
+      }
+   ] 
+}
