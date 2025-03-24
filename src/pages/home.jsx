@@ -1,13 +1,13 @@
 import { ArrowRight, CodeXml, Database, FileCode, Layers, Mail, MapPin, Palette, Phone, Send, Server } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import Socials from "../components/socials";
 import "../styles/home.css";
 import LinksProjects from "../components/links-projects";
-import { Link } from "react-router-dom";
 import Skill from "../components/skills";
+import emailjs from '@emailjs/browser';
 
 function Home() {
 
@@ -57,6 +57,26 @@ function Home() {
       useEffect(() => {
          getDatas()
       }, [])
+
+   
+   const form = useRef();
+
+   const sendEmail = (e) => {
+      e.preventDefault();
+   
+      emailjs
+         .sendForm('service_ve3apla', 'template_95ho045', form.current, {
+         publicKey: 'k1I49lbifKfeXA2br',
+         })
+         .then(
+         () => {
+            console.log('SUCCESS!');
+         },
+         (error) => {
+            console.log('FAILED...', error.text);
+         },
+         );
+   };
 
    return (
       <>
@@ -200,7 +220,7 @@ function Home() {
                      </div>
                   </article>
                   <article>
-                     <form action="">
+                     <form ref={form} onSubmit={sendEmail}>
                         <span>
                            <label htmlFor="name">Nom <span>*</span></label>
                            <input type="text" name="name" id="name" placeholder="Votre nom" required/>

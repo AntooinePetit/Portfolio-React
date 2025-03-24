@@ -108,3 +108,41 @@ header button:hover{
       width: 100%;
    }
 }
+
+/* ... Vos styles existants ... */
+
+.mobile-nav {
+   position: absolute;
+   right: 0;
+   top: 100px;
+   background: var(--primary-blue);
+   width: 100%;
+ }
+ 
+ .mobile-nav ul {
+   flex-direction: column;
+   gap: 20px;
+   padding: 20px;
+   text-align: start;
+ }
+ 
+ .mobile-nav a,
+ .mobile-nav button {
+   color: var(--background-white);
+ }
+ 
+ .mobile-nav a:hover,
+ .mobile-nav button:hover {
+   color: var(--background-white);
+ }
+ 
+ .mobile-nav li {
+   width: 100%;
+ }
+ 
+ @media screen and (min-width: 1025px) {
+   .mobile-nav {
+     display: none;
+   }
+ }
+ 
