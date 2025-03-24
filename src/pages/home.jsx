@@ -8,6 +8,8 @@ import "../styles/home.css";
 import LinksProjects from "../components/links-projects";
 
 function Home() {
+   
+
    const controls = useAnimation();
 
    useEffect(() => {
@@ -212,6 +214,7 @@ function Home() {
                         </div>
                      </article>
                   </div>
+                  <a href="#" id="see-all">Tous mes projets</a>
                </div>
             </section>
             <section id="contact">

@@ -277,12 +277,29 @@ main li{
    background: var(--background-beige);
 
    .container-1440{
+      text-align: center;
+
       h2{
          margin-bottom: 20px;
       }
 
       p{
          text-align: center;
+      }
+
+      #see-all{
+         background: var(--primary-blue);
+         border: 1px solid var(--primary-blue);
+         color: var(--background-white);
+         padding: 12px 24px;
+         border-radius: 5px;
+         font-family: var(--open);
+         font-weight: 600;
+         font-size: 16px;
+      }
+
+      #see-all:hover{
+         background: #1E96FCE6;
       }
    
       .project-list{
@@ -291,6 +308,7 @@ main li{
          gap: 32px;
          margin-top: 40px;
          margin-bottom: 40px;
+         text-align: start;
 
          article{
             background-color: var(--background-white);
@@ -424,6 +442,10 @@ main li{
                text-align: start;
                margin-bottom: 0;
             }
+
+            a:hover{
+               color: var(--secondary-red);
+            }
          }
 
          form{
@@ -460,6 +482,12 @@ main li{
                border-radius: 8px;
             }
 
+            input:focus,
+            textarea:focus{
+               outline: none;
+               box-shadow: 0 0 0 2px var(--background-white), 0 0 0 4px var(--secondary-red);
+            }
+
             textarea{
                height: 120px;
                resize: none;
@@ -478,7 +506,63 @@ main li{
                }
             }
 
+            button:hover{
+            background: #e34e67eb;
+            }
+
          }
       }
+   }
+}
+
+/* Responsive tablette */
+
+@media screen and (max-width:1024px) {
+   #skills .container-1440{
+      grid-template-columns: repeat(2, 1fr);
+   }
+   #projects .project-list,
+   #contact .container-1440{
+      grid-template-columns: 1fr!important;
+   }
+}
+
+/* Responsive mobile */
+
+@media screen and (max-width:767px) {
+   h1{
+      font-size: 40px;
+
+      svg{
+         width: 280px;
+      }
+   }
+   #welcome-buttons{
+      gap: 10px!important;
+
+      a{
+         gap: 2px!important;
+         padding: 11px 4px!important;
+      }
+   }
+   #skills .container-1440,
+   #about .container-1440,
+   #contact form{
+      grid-template-columns: 1fr!important;
+
+   }
+   #about img{
+      height: 200px!important;
+      max-width: 200px!important;
+   }
+   #projects > div > div > article > div > div > a{
+      gap: 5px!important;
+   }
+   #contact span,
+   #contact button{
+      grid-column: 1;
+   }
+   #contact > div > article:nth-child(1){
+      padding: 0;
    }
 }

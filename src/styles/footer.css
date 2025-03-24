@@ -29,3 +29,19 @@ footer article{
    justify-content: space-between;
    align-items: center;
 }
+
+/* Responsive mobile */
+
+@media screen and (max-width:767px) {
+   footer article{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      text-align: center;
+   }
+   footer .socials{
+      justify-content: center;
+      margin-bottom: 15px;
+   }
+   
+}

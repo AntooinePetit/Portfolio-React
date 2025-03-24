@@ -2,12 +2,15 @@ header{
    position: sticky;
    top: 0;
    background: #fafafaf7;
+   z-index: 1000;
+}
+
+header div{
    max-width: 1440px;
    display: flex;
+   gap: 50px;
    justify-content: space-between;
    align-items: center;
-   gap: 50px;
-   z-index: 1000;
    margin: auto;
    padding: 0 15px;
 }
@@ -48,4 +51,60 @@ header button{
 header button:hover{
    background: #1E96FC1A;
    cursor: pointer;
+}
+
+#burger-menu{
+   display: none;
+}
+
+/* Responsive */
+
+@media screen and (max-width:1024px) {
+   .desktop-nav{
+      display: none;
+   }
+   #burger-menu{
+      display: block;
+      
+   }
+}
+
+/* Burger Menu */
+
+#burger-menu{
+   color: var(--secondary-red);
+   width: 32px;
+   height: 32px;
+   padding: 0;
+   border: none;
+}
+
+#burger-menu:hover{
+   background: none;
+}
+
+.active{
+   display: block;
+   position: absolute;
+   right: 0;
+   top: 100px;
+   background: var(--primary-blue);
+   width: 100%;
+
+   ul{
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      text-align: start;
+   }
+   a,button{
+      color: var(--background-white);
+   }
+   a:hover,
+   button:hover{
+      color: var(--background-white);
+   }
+   li{
+      width: 100%;
+   }
 }
