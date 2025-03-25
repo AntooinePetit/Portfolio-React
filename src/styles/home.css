@@ -510,6 +510,22 @@ main li{
             background: #e34e67eb;
             }
 
+            .error-form {
+               color: var(--secondary-red);
+               font-size: 12px;
+               height: 1.2em; /* Réserve l'espace pour éviter le déplacement */
+               visibility: hidden; /* Cache le message d'erreur tant qu'il n'est pas actif */
+               margin-bottom: 0;
+               text-align: start;
+               display: flex;
+               align-items: center;
+               gap: 5px;
+            }
+            
+            .error-form.active-form {
+               visibility: visible; /* Affiche le message d'erreur en cas de besoin */
+            }
+
          }
       }
    }

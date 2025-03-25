@@ -1,4 +1,4 @@
-import { ArrowRight, CodeXml, Database, FileCode, Layers, Mail, MapPin, Palette, Phone, Send, Server } from "lucide-react";
+import { ArrowRight, CircleAlert, CodeXml, Database, FileCode, Layers, Mail, MapPin, Palette, Phone, Send, Server } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/footer";
@@ -8,6 +8,7 @@ import "../styles/home.css";
 import LinksProjects from "../components/links-projects";
 import Skill from "../components/skills";
 import emailjs from '@emailjs/browser';
+import moment from "moment";
 
 function Home() {
 
@@ -49,20 +50,52 @@ function Home() {
    }, [controls]);
 
    const [data, setData] = useState([])
-      async function getDatas(){
-         const req = await fetch("/data/skills.json")
-         const res = await req.json()
-         setData(res.skills) 
-      }
-      useEffect(() => {
-         getDatas()
-      }, [])
+   async function getDatas(){
+      const req = await fetch("/data/skills.json")
+      const res = await req.json()
+      setData(res.skills) 
+   }
+   useEffect(() => {
+      getDatas()
+   }, [])
+
+   const [time, setTime] = useState(moment().format('MMMM Do YYYY, h:mm:ss a'))
+   function getTime(){
+      const now = moment().format('MMMM Do YYYY, h:mm:ss a');
+      setTime(now)
+   }
 
    
    const form = useRef();
 
    const sendEmail = (e) => {
       e.preventDefault();
+      getTime()
+
+      let validForm = true
+
+      const nameValue = e.target.elements.name.value
+      const emailValue = e.target.elements.email.value
+      const regexName = /^[a-zA-ZÀ-ÿ- ]{2,}$/
+      const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$/
+
+      if(!regexName.test(nameValue)){
+         document.querySelector("#contact > div > article:nth-child(2) > form > span:nth-child(1) > p").classList.add('active-form');
+         validForm = false
+      } else {
+         document.querySelector("#contact > div > article:nth-child(2) > form > span:nth-child(1) > p").classList.remove('active-form');
+      }
+
+      if(!regexEmail.test(emailValue)){
+         document.querySelector("#contact > div > article:nth-child(2) > form > span:nth-child(2) > p").classList.add('active-form');
+         validForm = false
+      } else{
+         document.querySelector("#contact > div > article:nth-child(2) > form > span:nth-child(2) > p").classList.remove('active-form');
+      }
+
+      if(validForm === false){
+         return
+      }
    
       emailjs
          .sendForm('service_ve3apla', 'template_95ho045', form.current, {
@@ -76,6 +109,8 @@ function Home() {
             console.log('FAILED...', error.text);
          },
          );
+      
+      e.target.reset()
    };
 
    return (
@@ -224,24 +259,29 @@ function Home() {
                         <span>
                            <label htmlFor="name">Nom <span>*</span></label>
                            <input type="text" name="name" id="name" placeholder="Votre nom" required/>
+                           <p className="error-form"><CircleAlert size={16} />Erreur ! Le nom doit faire au moins 2 caractères</p>
                         </span>
 
                         <span>
                            <label htmlFor="email">Email <span>*</span></label>
                            <input type="email" name="email" id="email" placeholder="Votre email" required/>
+                           <p className="error-form"><CircleAlert size={16} />Erreur ! Entrez une adresse mail valide</p>
                         </span>
 
                         <span>
-                           <label htmlFor="subject">Sujet <span>*</span></label>
-                           <input type="text" name="subject" id="subject" placeholder="Le sujet de votre message" required/>
+                           <label htmlFor="title">Sujet <span>*</span></label>
+                           <input type="text" name="title" id="title" placeholder="Le sujet de votre message" required/>
+                           <p className="error-form"><CircleAlert size={16} />Erreur</p>
                         </span>
 
                         <span>
                            <label htmlFor="message">Message <span>*</span></label>
                            <textarea name="message" id="message" placeholder="Votre message...." required></textarea>
+                           <p className="error-form"><CircleAlert size={16} />Erreur</p>
                         </span>
                         
                         <button type="submit">Envoyer <Send /></button>
+                        <input type="hidden" name="time" value={time} />
                      </form>
                   </article>
                </div>
