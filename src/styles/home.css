@@ -161,7 +161,7 @@ main li{
    position: absolute;
    left: 50%;
    transform: translateX(-50%);
-   bottom: -5px;
+   bottom: -100px;
 }
 
 /* Section 2 : About */
@@ -313,6 +313,7 @@ main li{
          article{
             background-color: var(--background-white);
             border-radius: 15px;
+            box-shadow: 0px 10px 10px 2px #3f3e3e;
 
             img{
                height: 200px;

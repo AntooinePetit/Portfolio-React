@@ -1,5 +1,4 @@
 import { ArrowRight, CircleAlert, CodeXml, Database, FileCode, Layers, Mail, MapPin, Palette, Phone, Send, Server } from "lucide-react";
-import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
@@ -9,45 +8,9 @@ import LinksProjects from "../components/links-projects";
 import Skill from "../components/skills";
 import emailjs from '@emailjs/browser';
 import moment from "moment";
+import WaveAnimation from "../components/underline";
 
 function Home() {
-
-
-   const controls = useAnimation();
-
-   useEffect(() => {
-      const animateLine = async () => {
-         // Animation : la ligne apparaît complètement
-         await controls.start({
-            pathLength: 1,
-            opacity: 1,
-            transition: {
-               duration: 2, // Durée de l'apparition
-               ease: "easeInOut",
-            },
-         });
-
-         // Maintenir la ligne visible pendant un court instant
-         await new Promise(resolve => setTimeout(resolve, 2000));
-
-         // Animation : la ligne disparaît progressivement en opacité
-         await controls.start({
-            opacity: 0,
-            transition: {
-               duration: 1, // Durée de la disparition
-               ease: "easeInOut",
-            },
-         });
-
-         // Réinitialiser l'état pour recommencer l'animation
-         controls.set({ pathLength: 0, opacity: 0 });
-
-         // Relancer l'animation
-         requestAnimationFrame(animateLine);
-      };
-
-      animateLine();
-   }, [controls]);
 
    const [data, setData] = useState([])
    async function getDatas(){
@@ -122,21 +85,7 @@ function Home() {
                   <h1>
                      Bonjour, je suis <span className="animated-span">
                         Antoine Petit
-                           <svg
-                              width="400"
-                              height="20"
-                              viewBox="0 0 400 20"
-                              className="wavy-line"
-                           >
-                              <motion.path
-                                 d="M 0 10 Q 16.67 0, 33.33 10 T 66.67 10 T 100 10 T 133.33 10 T 166.67 10 T 200 10 T 233.33 10 T 266.67 10 T 300 10 T 333.33 10 T 366.67 10 T 400 10"
-                                 stroke="#1E96FC"
-                                 strokeWidth="4"
-                                 fill="transparent"
-                                 initial={{ pathLength: 0, opacity: 0 }}
-                                 animate={controls}
-                              />
-                           </svg>
+                           <WaveAnimation />
                         </span>
                   </h1>
 
